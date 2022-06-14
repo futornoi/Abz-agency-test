@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import CustomTitle from "../../Title/CustomTitle";
 import UserCard from "../../Cards/UserCard";
 import CustomButton from "../../Button/CustomButton";
@@ -27,26 +27,29 @@ const UsersSection:React.FC<UserSections> = ({isSuccess}) => {
     })
   }
 
-  const initialUsers = async () => {
-    setLoading(true)
-    try {
-      const usersData = await getUsers({ count: 6, page: 1 })
-      setUserList(usersData)
-    } catch (e) {
-      const error = e as Error;
-      console.log(error.message)
-    } finally {
-      setLoading(false)
-    }
-  }
+  const initialUsers = useCallback(
+      async () => {
+        setLoading(true)
+        try {
+          const usersData = await getUsers({ count: 6, page: 1 })
+          setUserList(usersData)
+        } catch (e) {
+          const error = e as Error;
+          console.log(error.message)
+        } finally {
+          setLoading(false)
+        }
+      },
+    [isSuccess],
+  );
 
   useEffect(() => {
     initialUsers()
-  }, [isSuccess]);
+  }, [initialUsers]);
 
-  const userCardElement = useMemo(() => {
-    return userList?.users.map(user => <UserCard key={user.id} user={user}/>)
-  }, [userList?.page]);
+  const userCardElement = userList?.users.map(user => <UserCard key={user.id} user={user}/>)
+
+  console.log(userList)
 
   return (
     <section id="users">
