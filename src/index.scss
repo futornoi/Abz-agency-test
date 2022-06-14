@@ -1,0 +1,45 @@
+@import "Styles/Constants";
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  text-decoration: none;
+  touch-action: pan-x pan-y;
+}
+
+a,
+button {
+  color: black;
+  background-color: unset;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 26px;
+  background-color: var(--bgColor);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

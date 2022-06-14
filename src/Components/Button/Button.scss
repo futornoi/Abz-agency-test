@@ -1,0 +1,19 @@
+.default-btn {
+	padding: 4px 23px;
+	border-radius: 80px;
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 26px;
+	background-color: var(--yellow);
+	color: var(--textColor);
+	transition: var(--transition);
+
+	&:hover {
+		background-color: var(--yellowHower);
+	}
+
+	&:disabled {
+		color: white;
+		background-color: var(--gray);
+	}
+}

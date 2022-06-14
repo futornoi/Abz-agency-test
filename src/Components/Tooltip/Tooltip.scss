@@ -1,0 +1,36 @@
+@import "src/Styles/Constants";
+
+.text-wrapper {
+	display: grid;
+	grid-template-columns: 1fr;
+	cursor: default;
+	position: relative;
+
+	.text-content {
+		white-space: nowrap;
+		width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&:hover {
+		.text-tooltip {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+
+	.text-tooltip {
+		visibility: hidden;
+		opacity: 0;
+		z-index: 2;
+		transition: var(--transition);
+		position: absolute;
+		padding: 3px 16px;
+		background-color: var(--textColor);
+		color: white;
+		border-radius: 4px;
+		top: 47px;
+		left: 77px;
+	}
+}

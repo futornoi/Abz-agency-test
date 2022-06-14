@@ -1,0 +1,63 @@
+:root {
+	//COLORS
+	--yellow: #F4E041;
+	--yellowHower: #FFE302;
+	--blue: #00BDD3;
+	--gray: #B4B4B4;
+	--bgColor: #F8F8F8;
+	--textColor: rgba(0, 0, 0, 0.87);
+	--hrayText: #7E7E7E;
+	--error:  #CB3D40;
+	//TRANSITION
+	--transition: all .3s ease;
+	//Breakpoints
+	--fluid: 1168px;
+	--md: 768px
+}
+
+$breakpoints: (
+	'xs': (min-width: 576px),
+	'md': (min-width: 768px),
+	'xl': (min-width: 1168px)) !default;
+
+@mixin media-breakpoint-up ($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media #{inspect(map-get($breakpoints, $breakpoint))} {
+			@content
+		}
+	} @else {
+		@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. Available breakpoints are: `#{map-keys($breakpoints)}`.";
+	}
+}
+
+%flexCenter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+%flexColumn {
+	display: flex;
+	flex-direction: column;
+}
+
+.container-fluid {
+	max-width: var(--fluid);
+	width: 100%;
+	margin: 0 auto;
+}
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+	max-width: var(--fluid);
+	padding: 0 16px;
+
+	@include media-breakpoint-up('xs') {
+		padding: 0 32px;
+	}
+
+	@include media-breakpoint-up('md') {
+		padding: 0 60px;
+	}
+}

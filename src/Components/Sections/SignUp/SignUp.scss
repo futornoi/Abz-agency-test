@@ -1,0 +1,17 @@
+@import "src/Styles/Constants";
+
+
+#sign-up {
+	padding-bottom: 100px;
+
+	.signUp-form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.success-image {
+		@extend %flexCenter;
+		margin: 0 auto;
+	}
+}

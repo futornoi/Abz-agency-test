@@ -1,0 +1,23 @@
+@import "src/Styles/Constants";
+
+#users {
+	margin: 140px 0;
+
+	.users-wrapper {
+		margin: 50px 0;
+		gap: 20px;
+		display:grid;
+		grid-template-columns: repeat(auto-fill, minmax(282px ,1fr));
+
+		@include media-breakpoint-up('xs') {
+			gap: 16px;
+		}
+
+		@include media-breakpoint-up('md') {
+			gap: 29px;
+		}
+	}
+	.default-btn {
+		@extend %flexCenter;
+		margin: 0 auto;
+	}}

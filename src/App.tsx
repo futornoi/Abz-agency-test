@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { getToken } from "./Api/users";
+import HeaderSection from "./Components/Sections/Header/HeaderSection";
+import IntroSection from "./Components/Sections/Intro/IntroSection";
+import UsersSection from "./Components/Sections/Users/UsersSection";
+import SignUp from "./Components/Sections/SignUp/SignUpSection";
 
-function App() {
+const App = () => {
+  const [isSuccess, setSuccess] = useState(false);
+  const handleOnSuccess = () => setSuccess(prevState => !prevState)
+
+  const getAuthToken = async () => {
+    const tokenData = await getToken();
+    window.localStorage.setItem('Token', tokenData.token)
+  }
+
+  useEffect(() => {
+    getAuthToken()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <HeaderSection/>
+      <IntroSection/>
+      <UsersSection isSuccess={isSuccess}/>
+      <SignUp isSuccess={isSuccess} setSuccess={handleOnSuccess}/>
     </div>
-  );
-}
+  )
+};
 
 export default App;

@@ -1,0 +1,22 @@
+@import "../../../Styles/Constants";
+
+#header {
+	background-color: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 60px;
+	padding: 13px 0;
+	z-index: 3;
+	.header__container {
+		@extend %flexCenter;
+		gap: 10px;
+
+		.logo-image {
+			max-width: 104px;
+			margin-right: auto;
+			cursor: pointer;
+		}
+	}
+}

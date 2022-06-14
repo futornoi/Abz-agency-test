@@ -1,0 +1,18 @@
+@import "src/Styles/Constants";
+
+.preloader-wrapper {
+	@extend %flexCenter;
+	padding: 50px;
+	-webkit-animation: 2s preloader infinite ease-in-out;
+	-o-animation: 2s preloader infinite ease-in-out;
+	animation: 2s preloader infinite ease-in-out;
+}
+
+@keyframes preloader {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}

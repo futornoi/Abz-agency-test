@@ -1,0 +1,22 @@
+@import "src/Styles/Constants";
+
+.card {
+	background: #FFFFFF;
+	border-radius: 10px;
+	padding: 20px;
+
+	//USER_CARD
+	.user-card__content {
+		@extend %flexCenter;
+		flex-direction: column;
+
+		.user-name {
+			margin: 20px 0;
+		}
+
+		.user-desc {
+			@extend %flexColumn;
+			text-align: center;
+		}
+	}
+}
