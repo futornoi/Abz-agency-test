@@ -48,8 +48,7 @@ const UsersSection:React.FC<UserSections> = ({isSuccess}) => {
   }, [initialUsers]);
 
   const userCardElement = userList?.users.map(user => <UserCard key={user.id} user={user}/>)
-
-  console.log(userList)
+  const showButton = !!userList?.links.next_url && !loading
 
   return (
     <section id="users">
@@ -60,7 +59,11 @@ const UsersSection:React.FC<UserSections> = ({isSuccess}) => {
               ? <Preloader/>
               : <div className="users-wrapper">{ userCardElement }</div>
           }
-        <CustomButton onClick={setUsers((userList?.page || 1) + 1)} children="Show more"/>
+        {
+          showButton && (
+            <CustomButton onClick={setUsers((userList?.page || 1) + 1)} children="Show more"/>
+          )
+        }
       </div>
     </section>
   );
